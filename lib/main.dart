@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pets_app/views/home_view.dart';
+import 'package:pets_app/views/login_view.dart';
 
 void main() {
   runApp(App());
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeView(),
+      home: LoginView(),
     );
   }
 }

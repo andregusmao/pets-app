@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pets_app/config/colors.dart';
 
 class HomeView extends StatelessWidget {
   int _counter = 0;
@@ -17,7 +18,7 @@ class HomeView extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.orange,
+        backgroundColor: MAIN_COLOR,
       ),
       body: Center(
         child: Column(
