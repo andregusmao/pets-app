@@ -12,13 +12,16 @@ class TextBoxComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final OutlineInputBorder _normalBorderStyle = OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
       borderSide: BorderSide(
-        style: BorderStyle.none,
+        color: MAIN_COLOR,
+        style: BorderStyle.solid,
       ),
     );
     final OutlineInputBorder _errorBorderStyle = OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8.0)),
       borderSide: BorderSide(
-        style: BorderStyle.none,
+        style: BorderStyle.solid,
       ),
     );
 
@@ -34,7 +37,8 @@ class TextBoxComponent extends StatelessWidget {
         labelStyle: TextStyle(
           color: this.error == null ? MAIN_COLOR : Colors.white,
           fontSize: 20,
-          height: 2.4,
+          fontWeight: FontWeight.bold,
+          height: 0.6,
         ),
         hintText: this.hint,
         errorText: this.error,
@@ -42,9 +46,10 @@ class TextBoxComponent extends StatelessWidget {
           color: Colors.white,
           fontSize: 16.0,
         ),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
         fillColor: Colors.white,
         filled: true,
+        contentPadding: const EdgeInsets.all(16.0),
       ),
       obscureText: this.isPassword ?? false,
       style: TextStyle(
