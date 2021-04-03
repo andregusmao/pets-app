@@ -26,6 +26,9 @@ dependencies:
   path_provider:
   path:
   image_picker:
+  mobx:
+  flutter_mobx:
+  get_it:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -34,7 +37,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  mobx_codegen:
+  build_runner:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

@@ -15,18 +15,22 @@ class LaunchView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginView(),
-                ),
-              ),
+              onTap: () => _go(context),
               child: Image(
                 image: AssetImage('lib/assets/services4pet-logo-launch.png'),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _go(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LoginView(),
       ),
     );
   }

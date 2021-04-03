@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pets_app/views/home_view.dart';
 import 'package:pets_app/views/launch_view.dart';
 import 'package:pets_app/views/login_view.dart';
+import 'package:pets_app/views/pets_view.dart';
 import 'package:pets_app/views/subscribe_view.dart';
 
 void main() {

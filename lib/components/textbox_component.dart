@@ -2,25 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:pets_app/config/colors.dart';
 
 class TextBoxComponent extends StatelessWidget {
+  final Color color;
   final String label;
   final String hint;
   final String error;
   final bool isPassword;
+  final bool isFirstCapitalized;
+  final bool isAllCapitalized;
+  final TextInputType inputType;
 
-  TextBoxComponent({this.label, this.hint, this.error, this.isPassword});
+  TextBoxComponent({
+    this.color,
+    this.label,
+    this.hint,
+    this.error,
+    this.isPassword,
+    this.isFirstCapitalized = false,
+    this.isAllCapitalized = false,
+    this.inputType,
+  });
 
   @override
   Widget build(BuildContext context) {
     final OutlineInputBorder _normalBorderStyle = OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8.0)),
       borderSide: BorderSide(
-        color: MAIN_COLOR,
+        color: this.color ?? MAIN_COLOR,
         style: BorderStyle.solid,
       ),
     );
     final OutlineInputBorder _errorBorderStyle = OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8.0)),
       borderSide: BorderSide(
+        color: Colors.red,
         style: BorderStyle.solid,
       ),
     );
@@ -35,16 +49,17 @@ class TextBoxComponent extends StatelessWidget {
         focusedErrorBorder: _errorBorderStyle,
         labelText: this.label,
         labelStyle: TextStyle(
-          color: this.error == null ? MAIN_COLOR : Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          height: 0.6,
+          color: this.error == null ? this.color ?? MAIN_COLOR : Colors.red,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          height: 0.8,
         ),
         hintText: this.hint,
         errorText: this.error,
         errorStyle: TextStyle(
-          color: Colors.white,
-          fontSize: 16.0,
+          color: Colors.red,
+          fontSize: 12.0,
+          height: 0.8,
         ),
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         fillColor: Colors.white,
@@ -53,8 +68,21 @@ class TextBoxComponent extends StatelessWidget {
       ),
       obscureText: this.isPassword ?? false,
       style: TextStyle(
-        fontSize: 24,
+        fontSize: 16,
       ),
+      textCapitalization: this._getCapitalization(),
+      keyboardType: this.inputType,
     );
+  }
+
+  TextCapitalization _getCapitalization() {
+    if (this.isFirstCapitalized) {
+      return TextCapitalization.sentences;
+    }
+    if (this.isAllCapitalized) {
+      return TextCapitalization.words;
+    }
+
+    return TextCapitalization.none;
   }
 }

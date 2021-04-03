@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,19 +6,27 @@ import 'package:image_picker/image_picker.dart';
 class MainHeaderComponent extends StatelessWidget {
   final String title;
   final String subtitle;
-  final ByteBuffer avatar;
+  final ImageProvider avatar;
   final Function backButton;
+  final Function onChangeAvatar;
 
   MainHeaderComponent(
-      {Key key, this.title, this.subtitle = '', this.backButton, this.avatar})
+      {Key key,
+      this.title,
+      this.subtitle = '',
+      this.backButton,
+      this.avatar,
+      this.onChangeAvatar})
       : super(key: key);
 
   File image;
 
   Future _getImage() async {
-    final pickedFile =
-        await ImagePicker().getImage(source: ImageSource.gallery);
-    this.image = File(pickedFile.path);
+    final pickedFile = await ImagePicker().getImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      this.image = File(pickedFile.path);
+      this.onChangeAvatar(pickedFile.path);
+    }
   }
 
   @override
@@ -32,7 +39,7 @@ class MainHeaderComponent extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.centerLeft,
-              margin: const EdgeInsets.fromLTRB(0, 56, 0, 0),
+              margin: const EdgeInsets.only(top: 32),
               child: IconButton(
                 icon: Icon(Icons.arrow_back),
                 color: Colors.white,
@@ -59,12 +66,12 @@ class MainHeaderComponent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+                  padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
                   child: Text(
                     this.subtitle,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 24.0,
+                      fontSize: 20.0,
                     ),
                   ),
                 ),
@@ -74,7 +81,7 @@ class MainHeaderComponent extends StatelessWidget {
                     this.title,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 40.0,
+                      fontSize: 32.0,
                     ),
                   ),
                 ),
@@ -85,14 +92,12 @@ class MainHeaderComponent extends StatelessWidget {
               child: GestureDetector(
                 child: ClipOval(
                   child: Image(
-                    image: this.image == null
+                    image: this.avatar == null
                         ? AssetImage('lib/assets/image-placeholder.png')
-                        : Image.file(this.image),
-                    // image: this.widget.avatar == null
-                    //     ? AssetImage('lib/assets/image-placeholder.png')
-                    //     : Image.memory(this.widget.avatar.asUint8List()),
-                    width: 128,
-                    height: 128,
+                        : this.avatar,
+                    width: 96,
+                    height: 96,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 onTap: this._getImage,
