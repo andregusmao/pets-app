@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:pets_app/config/colors.dart';
-import 'package:pets_app/views/login_view.dart';
+import 'package:pets_app/views/login.view.dart';
 
 class LaunchView extends StatelessWidget {
   @override

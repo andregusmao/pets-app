@@ -1,12 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:pets_app/components/container_component.dart';
-import 'package:pets_app/components/floating_button_component.dart';
-import 'package:pets_app/components/main_header_component.dart';
-import 'package:pets_app/components/pet_tile_component.dart';
+import 'package:pets_app/components/container.component.dart';
+import 'package:pets_app/components/floatingbutton.component.dart';
+import 'package:pets_app/components/header.component.dart';
+import 'package:pets_app/components/pettile.component.dart';
 import 'package:pets_app/config/colors.dart';
-import 'package:pets_app/views/pet_details_view.dart';
+import 'package:pets_app/views/petdetails.view.dart';
 
 class MyPet {
   final String avatarUrl;
@@ -51,7 +51,7 @@ class PetsView extends StatelessWidget {
       body: Column(
         children: [
           Center(
-            child: MainHeaderComponent(
+            child: HeaderComponent(
               title: 'Meus Pets',
               subtitle: 'André Gusmão',
               avatar: Image.network(

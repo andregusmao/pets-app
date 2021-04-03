@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pets_app/views/home_view.dart';
-import 'package:pets_app/views/launch_view.dart';
-import 'package:pets_app/views/login_view.dart';
-import 'package:pets_app/views/pets_view.dart';
-import 'package:pets_app/views/subscribe_view.dart';
+import 'package:pets_app/views/home.view.dart';
+import 'package:pets_app/views/launch.view.dart';
+import 'package:pets_app/views/login.view.dart';
+import 'package:pets_app/views/pets.view.dart';
+import 'package:pets_app/views/subscribe.view.dart';
 
 void main() {
   runApp(App());

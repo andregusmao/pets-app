@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pets_app/components/textbox_component.dart';
+import 'package:pets_app/components/textbox.component.dart';
 
 class ContainerComponent extends StatelessWidget {
   final Widget child;

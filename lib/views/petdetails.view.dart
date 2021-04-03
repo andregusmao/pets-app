@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pets_app/components/container_component.dart';
-import 'package:pets_app/components/floating_button_component.dart';
-import 'package:pets_app/components/main_header_component.dart';
+import 'package:pets_app/components/container.component.dart';
+import 'package:pets_app/components/floatingbutton.component.dart';
+import 'package:pets_app/components/header.component.dart';
 import 'package:pets_app/config/colors.dart';
 
 class PetDetailsView extends StatelessWidget {
@@ -27,7 +27,7 @@ class PetDetailsView extends StatelessWidget {
       body: Column(
         children: [
           Center(
-            child: MainHeaderComponent(
+            child: HeaderComponent(
               title: 'Caramelo',
               subtitle: 'SRD',
               avatar: Image.network(
