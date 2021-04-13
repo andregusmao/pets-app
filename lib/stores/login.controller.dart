@@ -6,5 +6,13 @@ part 'login.controller.g.dart';
 class LoginController = _LoginControllerBase with _$LoginController;
 
 abstract class _LoginControllerBase with Store {
-  final LoginViewModel viewModel = LoginViewModel();
+  @observable
+  String email;
+  @action
+  void setEmail(String email) => this.email = email;
+
+  @observable
+  String password;
+  @action
+  void setPassword(String password) => this.password = password;
 }

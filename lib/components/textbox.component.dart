@@ -10,6 +10,7 @@ class TextBoxComponent extends StatelessWidget {
   final bool isFirstCapitalized;
   final bool isAllCapitalized;
   final TextInputType inputType;
+  final Function onChange;
 
   TextBoxComponent({
     this.color,
@@ -20,6 +21,7 @@ class TextBoxComponent extends StatelessWidget {
     this.isFirstCapitalized = false,
     this.isAllCapitalized = false,
     this.inputType,
+    this.onChange,
   });
 
   @override
@@ -72,6 +74,7 @@ class TextBoxComponent extends StatelessWidget {
       ),
       textCapitalization: this._getCapitalization(),
       keyboardType: this.inputType,
+      onChanged: this.onChange,
     );
   }
 
