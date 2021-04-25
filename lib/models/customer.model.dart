@@ -20,16 +20,16 @@ class CustomerModel {
       this.city,
       this.state});
 
-  CustomerModel.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    lastname = json['lastname'];
-    email = json['email'];
-    password = json['password'];
-    address = json['address'];
-    neighborhood = json['neighborhood'];
-    zipcode = json['zipcode'];
-    city = json['city'];
-    state = json['state'];
+  CustomerModel.fromJson(Map<String, dynamic> data) {
+    name = data['name'];
+    lastname = data['lastname'];
+    email = data['email'];
+    password = data['password'];
+    address = data['address'];
+    neighborhood = data['neighborhood'];
+    zipcode = data['zipcode'];
+    city = data['city'];
+    state = data['state'];
   }
 
   Map<String, dynamic> toJson() {

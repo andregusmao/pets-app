@@ -29,6 +29,7 @@ dependencies:
   mobx:
   flutter_mobx:
   get_it:
+  flutter_svg: ^0.22.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -56,6 +57,7 @@ flutter:
     - lib/assets/services4pet-logo-login.png
     - lib/assets/services4pet-logo-main.png
     - lib/assets/image-placeholder.png
+    - lib/assets/icon.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

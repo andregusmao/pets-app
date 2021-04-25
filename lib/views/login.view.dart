@@ -22,6 +22,7 @@ class LoginView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Image(
+                // image: AssetImage('lib/assets/services4pet-logo-login.png'),
                 image: AssetImage('lib/assets/services4pet-logo-login.png'),
               ),
             ),
