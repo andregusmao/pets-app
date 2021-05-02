@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:pets_app/components/container.component.dart';
 import 'package:pets_app/components/floatingbutton.component.dart';
@@ -241,24 +243,28 @@ class PetDetailsView extends StatelessWidget {
                                           showDialog(
                                             context: context,
                                             builder: (context) {
-                                              return AlertDialog(
-                                                contentPadding:
-                                                    const EdgeInsets.all(0.0),
-                                                content: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(
-                                                              16.0)),
-                                                  child: Image(
-                                                    image: photo,
-                                                    fit: BoxFit.fill,
+                                              return BackdropFilter(
+                                                filter: ImageFilter.blur(
+                                                    sigmaX: 4, sigmaY: 4),
+                                                child: AlertDialog(
+                                                  contentPadding:
+                                                      const EdgeInsets.all(0.0),
+                                                  content: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(16.0),
+                                                    ),
+                                                    child: Image(
+                                                      image: photo,
+                                                      fit: BoxFit.fill,
+                                                    ),
                                                   ),
-                                                ),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                    Radius.circular(
-                                                      16.0,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(
+                                                        16.0,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
